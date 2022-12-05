@@ -1,0 +1,173 @@
+<form [formGroup]="formRevisionPar" (submit)="guardarDetalleRevision()">
+  <section class="revison mt-3">
+
+    <div class="container my-4">
+      <div class="revision__header">
+
+        <div class="row header ">
+          <div class="col-lg-5">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Fecha última actualización:</label>
+              <input type="date" class="form-control" />
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Fecha de revisión:</label>
+              <input type="date" class="form-control"/>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Versión:</label>
+              <input formControlName="version" type="text" class="form-control"/>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Módulo o producto a revisar:</label>
+              <input formControlName="moduloRevisar" type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Proyecto</label>
+              <input formControlName="proyecto" type="text" class="form-control" />
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Creador:</label>
+              <input formControlName="idCreador" type="number" class="form-control" />
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Revisor:</label>
+              <input formControlName="idRevisor" type="number" class="form-control" />
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Usuario Elabora:</label>
+              <input formControlName="usuarioElaboraId" type="number" class="form-control"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="form-group">
+            <h1 style="color: white; margin-bottom: 1rem;">Selecciona un documento o producto de trabajo:</h1>
+            <select class="form-control" id="exampleFormControlSelect2" id="productoTrabajo"
+              formControlName="productoTrabajo" (click)="toggleShow()">
+              <option *ngFor="let producto of lstProductos" value="{{producto.id}}">
+                {{producto.producto}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="card" *ngIf="isShown" id="divshow">
+            <div class="preguntas" *ngFor="let pregunta of listaPreguntas">
+              <h3 style="text-align: justify;">{{pregunta.pregunta}} </h3>
+              <button data-toggle="modal" data-target="#trackerModal"  type="button" class="btn btn-success" (click)="openPopup(pregunta.pregunta, pregunta.id)">
+              Editar
+               </button>
+            </div>
+      </div>
+      <div class="button-listado">
+        <button class="btn btn-dark" type="button" (click)="listadoRevisionesPares()" style="margin-right: 2rem;">
+          Listado de Revisiones Pares
+        </button>
+      </div>
+      <hr>
+
+      <!-- Modal -->
+
+      <!-- <button style="margin: 50px; padding: 10px;" data-toggle="modal" data-target="#trackerModal" type="button"
+          class="btn btn-primary" (click)="openPopup()">
+          Realizar Revision Par
+        </button> -->
+
+      <div class="modal fade" id="trackerModal" tabindex="-1" aria-labelledby="nuevoProyecto" aria-hidden="true">
+        <div class="modal-dialog" style="min-width: 95%;">
+          <!--Con el min-width manejo el ancho del modal -->
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <h2 class="modal-title" id="nuevoProyecto" style="margin-left: 45%; margin-right: auto;">Revision Par
+              </h2>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span>&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <div class="container-fluid">
+                  <h2>Pregunta asociada: {{nombrePregunta}}</h2>
+
+                  <table class="table">
+                      <tr>
+                        <th><h4>Cumple</h4> </th>
+                        <th width="15%"><h4>Número de hallazgos</h4> </th>
+                        <th><h4>Observaciones del hallazgo</h4> </th>
+                        <th><h4>Acciones correctivas</h4></th>
+                        <th><h4>Responsable</h4> </th>
+                        <!-- <th scope="col">Tipo</th>
+                            <th scope="col">Impacto</th> -->
+                      </tr>
+                      <tr>
+                        <td>
+                            <div class="form-group">
+                              <select class="form-control" id="exampleFormControlSelect2" formControlName="cumple">
+                                <option value="S">Si</option>
+                                <option value="N">No</option>
+                              </select>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="form-group">
+                              <input formControlName="cantidadHallazgos" type="number" class="form-control"/>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="form-group">
+                              <input formControlName="observacionHallazgo" type="text" class="form-control"/>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="form-group">
+                              <input formControlName="correctivasImplementar" type="text" class="form-control"/>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="form-group">
+                              <input formControlName="responsableImplCorrectiva" type="text" class="form-control"/>
+                            </div>
+                        </td>
+                      </tr>
+                  </table>
+
+
+                <div class="col-md-8 boton">
+                  <button class="btn btn-success">Guardar</button>
+                </div>
+
+              </div>
+            </div>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+        </div>
+    </div>
+    </div>
+  </div>
+    </div>
+  </section>
+</form>

@@ -1,0 +1,101 @@
+.container-tabla{
+
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 3rem 3rem;
+  }
+  
+  .container-boton{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 2rem 0 0;
+  }
+  
+  .boton-agregar{
+  
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 0;
+    background-color: rgb(31, 59, 184);
+    color: #fff;
+  }
+  
+  .mat-elevation-z8{
+    width: 100%;
+  
+  }
+  
+  table{
+    width: 100%;
+  }
+
+  .botones-acciones{
+    border:none;
+    background: none;
+  }
+
+  .botones-acciones:focus{
+    outline: 0;
+  }
+
+  .botones-acciones:hover{
+      background-color: rgb(224, 222, 222);
+      border-radius: .3rem;
+  }
+  .boton-editar{
+    color:rgb(0, 0, 0)
+  }
+
+  .boton-detalle{
+    color: rgb(75, 169, 247);
+  }
+
+  .boton-estado{
+    color: rgb(240, 94, 58);
+  }
+  .modal-editar{
+    width: 190% !important;  
+    height: 200% !important; 
+    margin: 0px -190px!important;
+    padding: 15px 15px;
+  }
+
+  input{
+    text-align: center;
+  }
+
+  .boton-cerrar{
+    border: none ;
+    background: none;
+    color: red;
+  }
+
+.boton-guardar{
+  border: none ;
+  background: none;
+  color: rgb(42, 245, 52);
+}
+
+  .contenedor-boton{
+    display: flex ;
+    justify-content: flex-end ;
+  }
+
+  .card-editar{
+    margin-bottom: 1.5rem;
+  }
+  .icon{
+    margin-top: 2rem;
+    color: rgb(245, 240, 240);
+    background-color: black;
+    border-radius: 12px;
+    margin-left: auto;
+    margin-right: auto;
+}
+

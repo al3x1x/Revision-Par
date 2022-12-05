@@ -1,0 +1,134 @@
+*{
+    text-align: center;
+}
+.revision__header {
+    max-height: 30vh;
+}
+
+label {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+input, select, button {
+    border-radius: 12px;
+}
+
+.header{
+    outline: 1px solid #fff;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    margin: 3rem 0;
+}
+
+.header_group {
+    display: flex;
+    align-items: center;
+}
+
+.header_group > label {
+    font-size: 1.2rem;
+}
+
+.titulo__revison{
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+.input__header {
+    max-width: 50%;
+}
+
+
+.btn-success {
+    width: 70%;
+}
+
+.separador{
+    background-color: #fff;
+}
+
+.modal-editar{
+    width: 500%;
+    height: 500%;
+}
+
+.col-lg-5{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button-listado{
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3{
+    font-size: 18px;
+    padding-right: 1rem;
+}
+
+.btn-success{
+    margin-bottom: 3rem;
+    margin-right: -12%;
+    width: 10rem;
+
+}
+.btn-danger{
+    width: 6rem;
+    text-align: center;
+    margin: 2%;
+    margin-left: 85%;
+}
+
+.color-black{
+    color: black;
+}
+
+
+.boton{
+    margin-top: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.modal-title{
+    text-align: center;
+}
+
+th{
+    font-size: 15px;
+    color: rgb(82, 78, 78);
+}
+.btn-success{
+    width: 5rem;
+}
+.card{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    width: 70%;
+    border-radius: 12px;
+    opacity: 0.9;
+    /* display: none; */
+}
+.footer{
+    margin-right: 12%;
+}
+
+.col-lg-6{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.preguntas{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 2rem;
+}
+
+.table{
+    padding: 2px
+}

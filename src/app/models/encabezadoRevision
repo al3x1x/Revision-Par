@@ -1,0 +1,8 @@
+export interface encabezadoRevision{
+    version:string;
+    idRevisor:number;
+    idCreador:number;
+    usuarioElaboraId:number;
+    moduloRevisar:string;
+    proyecto:string;
+}

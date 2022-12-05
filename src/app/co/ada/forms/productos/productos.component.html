@@ -1,0 +1,133 @@
+<div class="container-tabla">
+
+  <div class="container-boton">
+
+    <button class="boton-agregar" type="button" data-toggle="modal" data-target="#1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="data">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="producto">
+        <th mat-header-cell *matHeaderCellDef> Producto o Documento </th>
+        <td mat-cell *matCellDef="let element"> {{element.producto}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="estados">
+        <th mat-header-cell *matHeaderCellDef> Estado </th>
+        <td mat-cell *matCellDef="let element">Borrado: <strong>{{element.estados}} </strong></td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef class="text-center"> Acciones </th>
+        <td mat-cell *matCellDef="let element" class="text-center">
+
+          <button (click)="detalleEditar(element.id, element)" type="button" data-toggle="modal" data-target="#2"
+            class="btn btn-outline-info mr-3">Editar</button>
+
+          <!-- <button (click)="detalleEstado(element.id, element)" type="button" data-toggle="modal" data-target="#3" class="btn btn-outline-info mr-3">Cambiar estado</button> -->
+
+        </td>
+      </ng-container>
+
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="1" tabindex="-1" role="dialog" aria-labelledby="modalLabel_1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form [formGroup]="formModal" (submit)="guardarProducto()">
+        <div class="modal-header">
+          <h3 class="modal-title" id="modalLabel_1">Agregar producto de trabajo</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+
+          <div class="form-group">
+            <label for="pwd">Ingrese el producto de trabajo</label>
+            <input name="producto" formControlName="producto" type="text" class="form-control" id="">
+          </div>
+
+          <div class="form-group">
+            <label for="pwd">Ingrese el estado</label>
+            <!-- <input name="estado" formControlName="estado" type="text" class="form-control" id=""> -->
+            <select placeholder="Seleccione un estado" name="estados" formControlName="estados" type="text" class="form-control">
+              <option>N</option>
+              <option>S</option>
+            </select>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="2" tabindex="-1" role="dialog" aria-labelledby="modalLabel_1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form [formGroup]="formModal" (submit)="editar(detalleUsuario.id)">
+        <div class="modal-header">
+          <h3 class="modal-title" id="modalLabel_1">Editar producto</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label for="pwd">Ingrese el producto</label>
+            <input name="producto" formControlName="producto" type="text" class="form-control" id=""
+              value="{{detalleUsuario?.producto}}">
+          </div>
+
+
+          <div class="form-group">
+            <label for="pwd">Ingrese el estado</label>
+            <!-- <input name="estado" formControlName="estado" type="text" class="form-control" id=""> -->
+            <select placeholder="Seleccione un estado" name="estados" formControlName="estados" type="text" class="form-control" id="">
+              <option>N</option>
+              <option>S</option>
+            </select>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
